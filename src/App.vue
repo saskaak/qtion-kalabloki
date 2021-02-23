@@ -1,26 +1,55 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <div class="container">
+      <div class="app__title">
+        Qtion<br>
+        kalabloki
+      </div>
+
+      <div
+        v-for="message in messages"
+        :key="message.id"
+      >
+        {{ message.id }}
+        {{ message.author }}
+        {{ message.name }}
+        {{ message.message }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import messages from './qtion-kalabloki.json';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      messages,
+    }
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import "styles/definitions";
+
+.app {
+  margin: r(32) 0;
+
+  @include breakpoint(S) {
+    margin: r(64) 0;
+  }
+}
+
+.app__title {
+  font-size: r(64);
+  font-weight: 100;
+  margin-bottom: r(32);
+
+  @include breakpoint(S) {
+    font-size: r(80);
+  }
 }
 </style>
