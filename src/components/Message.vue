@@ -46,7 +46,6 @@ export default {
 }
 
 .message__time {
-  font-size: r(12);
   color: #AAAAAA;
 }
 

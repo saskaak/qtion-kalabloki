@@ -53,12 +53,19 @@ const tags = {
   url: (url, body) => `<a href="${url}">${body}</a>`,
 }
 
-const messagesParsed = messages.map((objMessage) => {
+const messagesParsed = messages.map((message) => {
   const tagsOr = Object.keys(tags).join('|');
   const regex = new RegExp(`\\[(${tagsOr})=?(.*?)](.*?)\\[\\/\\1]`, 'gs');
   return {
-    ...objMessage,
-    message: objMessage.message.replaceAll(regex, (match, tag, ...args) => tags[tag](...args)),
+    ...message,
+    message: message.message.replaceAll(regex, (match, tag, ...args) => tags[tag](...args)),
+    time: new Date(message.time * 1000).toLocaleString('fi-FI', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }),
   }
 })
 
