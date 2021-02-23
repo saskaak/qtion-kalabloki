@@ -23,14 +23,31 @@
 import messages from '@/qtion-kalabloki.json';
 import Message from '@/components/Message';
 
+const images = {
+  'FSJHB.png': require('@/assets/images/FSJHB.png'),
+  'gyeNiP3.jpg': require('@/assets/images/gyeNiP3.jpg'),
+  'JBXEN1P.jpg': require('@/assets/images/JBXEN1P.jpg'),
+  'kuva1-2.jpg': require('@/assets/images/kuva1-2.jpg'),
+  'kuva2-2.jpg': require('@/assets/images/kuva2-2.jpg'),
+  'kuva3-2.jpg': require('@/assets/images/kuva3-2.jpg'),
+  'kuva4-1.jpg': require('@/assets/images/kuva4-1.jpg'),
+  'kuva5-1.jpg': require('@/assets/images/kuva5-1.jpg'),
+  'kuva6-1.jpg': require('@/assets/images/kuva6-1.jpg'),
+  'kuva7-1.jpg': require('@/assets/images/kuva7-1.jpg'),
+  'kuva8-1.jpg': require('@/assets/images/kuva8-1.jpg'),
+  'mTKx8TM.jpg': require('@/assets/images/mTKx8TM.jpg'),
+};
+
 const tags = {
-  img: (size, url) => size
-    ? `<img src="${url}">`
-    : `<img src="${url}" width="${size}">`,
+  img: (size, originalUrl) => {
+    const filename = originalUrl.split('/').pop().split('#')[0].split('?')[0]; // https://stackoverflow.com/a/36756650
+    const url = images[filename] || originalUrl;
+    return size
+      ? `<img src="${url}">`
+      : `<img src="${url}" width="${size}">`
+  },
   quote: (sourceId, body) => {
     const sourceMessage = messages.find((message) => message.id === parseInt(sourceId));
-    console.log(sourceId)
-    console.log(messages);
     return `<figure><figcaption>${sourceMessage.author}</figcaption><blockquote>${body}</blockquote></figure>`;
   },
   url: (url, body) => `<a href="${url}">${body}</a>`,
