@@ -1,0 +1,14 @@
+.container {
+  margin: 0 auto;
+  max-width: r(320);
+  padding: 0 r(16);
+
+  @include breakpoint(S) {
+    max-width: r(480);
+  }
+
+  @include breakpoint(M) {
+    max-width: r(720);
+    padding: 0 r(32);
+  }
+}

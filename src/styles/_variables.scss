@@ -1,0 +1,18 @@
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-red: #E6655A;
+$color-blue: #2995D8;
+
+$duration-snappy: 0.2s;
+$duration-calm: 0.5s;
+
+$ff-lato: Lato, sans-serif;
+
+$breakpoints: (
+  XS: 0,
+  S: r(576),
+  M: r(768),
+  L: r(992),
+  XL: r(1200),
+  XXL: r(1440),
+);
