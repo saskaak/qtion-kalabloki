@@ -29,8 +29,8 @@ export default {
   padding: r(24);
   background-color: #FAFAFA;
 
-  @include breakpoint(SM) {
-    padding: r(48);
+  @include breakpoint(S) {
+    padding: r(32);
     font-size: r(18);
   }
 }
