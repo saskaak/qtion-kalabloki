@@ -50,6 +50,7 @@ export default {
 }
 
 .message__message {
+  overflow-wrap: break-word;
   white-space: pre-line;
   line-height: 1.65;
 
