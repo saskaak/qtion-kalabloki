@@ -43,8 +43,8 @@ const tags = {
     const filename = originalUrl.split('/').pop().split('#')[0].split('?')[0]; // https://stackoverflow.com/a/36756650
     const url = images[filename] || originalUrl;
     return size
-      ? `<img src="${url}">`
-      : `<img src="${url}" width="${size}">`
+      ? `<img src="${url}" width="${size}">`
+      : `<img src="${url}">`;
   },
   quote: (sourceId, body) => {
     const sourceMessage = messages.find((message) => message.id === parseInt(sourceId));
